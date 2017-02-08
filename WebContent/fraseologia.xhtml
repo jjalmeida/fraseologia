@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet name="estilo.css" library="css" />
+</h:head>
+<h:body style="background-image:url(#{resource['img:img_fundo.png']});">
+	<h:form id="frm_fraseologia">
+
+		<div style="display: table; margin-left: 100px;">
+			<div style="float: left; width: 35%">
+				<h:graphicImage library="img" name="logo_fraseologia.png" />
+			</div>
+			<div style="margin-left: 700px;">
+				<p:panelGrid columns="3" styleClass="painelNoBorder"
+					style="margin-right: 20px;">
+					<p:outputLabel value="Analista: " />
+					<p:inputText value="#{fraseologiaBean.nome}" />
+					<p:commandButton value="OK" action="#{fraseologiaBean.atualiza()}"
+						update="frm_fraseologia" />
+				</p:panelGrid>
+			</div>
+		</div>
+		<center>
+			<div style="width: 800px;">
+				<p:accordionPanel activeIndex="-1">
+
+					<p:tab title="Informações Importantes" style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<p:outputLabel value="STATUS NA FERRAMENTA"
+									style="font-weight: bold;" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Caso a ferramenta Máximo não dê a opção de utilizar o status	correto, tirar &lt;br /&gt;
+									 print dos status disponíveis e anexar no chamado, informando em log que a ferramenta &lt;br /&gt; 
+									 não permitiu utilizar o status correto. Após, utilizar o status mais próximo. &lt;br /&gt; 
+								(ex: pendente = pendente informação do usuário; em andamento = Direcionamento e etc)."
+									escape="false" />
+							</p:column>
+							<p:outputLabel value="DETALHES DA SOLUÇÃO"
+								style="font-weight: bold;" />
+							<p:column>
+								<h:outputText
+									value="Na aba “Detalhes da Solução” preencher cada campo &lt;br /&gt;
+								(Diagnóstico, Descrição da Causa e Descrição da Solução) &lt;br /&gt;
+								de acordo com o que é pedido e não somente copiar e colar&lt;br /&gt;
+								 a log de encerramento nos três campos."
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Pós-log" style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="ENCERRAMENTO DE CHAMADO - PÓS LOG"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Resolvido tecnicamente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Solução: (Informar os detalhes da solução) &lt;br /&gt; &lt;br /&gt; 
+						Realizado os seguintes testes com o usuário que atestou a funcionalidade do equipamento/atendimento: &lt;br /&gt;&lt;br /&gt; 
+						Utilizado a base de conhecimento? ()Sim ()Não &lt;br /&gt;&lt;br /&gt;Inventário validado: &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Atendimento" style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="ENCERRAMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Resolvido tecnicamente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Solução: (Informar os detalhes da solução) &lt;br /&gt; &lt;br /&gt; 
+						Realizado os seguintes testes com o usuário que atestou a funcionalidade do equipamento/atendimento: &lt;br /&gt;&lt;br /&gt; 
+						Utilizado a base de conhecimento? ()Sim ()Não &lt;br /&gt;&lt;br /&gt;Inventário validado: &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Direcionamento" style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="DIRECIONAMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Direcionado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado está sendo direcionado para o grupo solucionador/analista.
+								&lt;br /&gt; &lt;br /&gt;Motivo: (Informar o motivo do direcionamento).&lt;br /&gt; &lt;br /&gt; 
+								Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Quando Usuário Está Ausente"
+						style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="1 TENTATIVA DE CONTATO (PRESENCIAL)"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Pendente informação do usuário" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Foram efetuadas as tentativas de contato, porém sem sucesso, conforme contato com (Informar o nome do usuário e ramal na tentativa presencial) &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+
+								<h:outputText value="2 TENTATIVA DE CONTATO (LYNC/TELEFONE)"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Pendente informação do usuário" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Foram efetuadas as tentativas de contato, porém sem sucesso, conforme contato com (Informar o nome do usuário e ramal na tentativa presencial).  &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+
+								<h:outputText value="3 TENTATIVA DE CONTATO (PRESENCIAL)"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Pendente informação do usuário" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Foram efetuadas as tentativas de contato, porém sem sucesso, conforme contato com (Informar o nome do usuário e ramal na tentativa presencial). &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+
+								<h:outputText value="TENTATIVA DE CONTATO (PROATIVA)"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Direcionado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Foram efetuadas as tentativas de contato, porém sem sucesso, conforme contato com (Informar o nome do usuário e ramal na tentativa presencial). &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="ENCERRAMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Resolvido tecnicamente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Solução: (Informar os detalhes da solução) &lt;br /&gt; &lt;br /&gt; Realizado os seguintes testes com o usuário que atestou a funcionalidade do equipamento/atendimento: &lt;br /&gt;&lt;br /&gt; Utilizado a base de conhecimento? ()Sim ()Não &lt;br /&gt;&lt;br /&gt;Inventário validado: &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Direcionamento Para 3° NÍVEL"
+						style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="DIRECIONAMENTO PARA 3° NÍVEL"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Direcionamento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Hostname: &lt;br /&gt;
+						Sistema Operacional: &lt;br /&gt;
+						Domain\User: &lt;br /&gt;
+						Localidade: &lt;br /&gt;
+						Telefone: &lt;br /&gt;
+						Disponibilidade: &lt;br /&gt;
+						Apresenta mensagem de erro: ( ) Sim (Anexar print e informar na log o nome do anexo) ( ) Não &lt;br /&gt;
+						O usuário tem acesso ao aplicativo? &lt;br /&gt;
+						Testou em outro equipamento? &lt;br /&gt;
+						Foram efetuados testes em outra máquina? &lt;br /&gt;
+						Qual? &lt;br /&gt;
+						Qual foi o resultado do teste em outra máquina? &lt;br /&gt;
+						Descrição do problema: (relato do analista, procedimentos realizados detalhadamente). &lt;br /&gt;
+						Caminho do instalador: &lt;br /&gt;
+						Caminho do manual: &lt;br /&gt;
+						Em que momento ocorre o erro? &lt;br /&gt;
+						Solicitou o apoio do seu Team Leader? (Informar o nome).&lt;br /&gt;&lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="ENCERRAMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Resolvido tecnicamente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Solução: (Informar os detalhes da solução) &lt;br /&gt; &lt;br /&gt; Realizado os seguintes testes com o usuário que atestou a funcionalidade do equipamento/atendimento: &lt;br /&gt;&lt;br /&gt; Utilizado a base de conhecimento? ()Sim ()Não &lt;br /&gt;&lt;br /&gt;Inventário validado: &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Quando o Usuário Solicita Agendamento"
+						style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; 
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="AGENDAMENTO DE CHAMADO – Á PEDIDO DO USUÁRIO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Agendado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Agendamento solicitado pelo usuário ________, atendimento para (___Data/Hora___). &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="INÍCIO DO ATENDIMENTO APÓS AGENDAMENTO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em andamento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Atendimento sendo iniciado/reiniciado, conforme pedido de agendamento do usuário. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="REAGENDAMENTO DE CHAMADO – Á PEDIDO DO USUÁRIO (se necessário)"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Agendado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Reagendamento solicitado pelo usuário ______________, atendimento para (___Data/Hora___). &lt;br /&gt; &lt;br /&gt; 
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="ENCERRAMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Resolvido tecnicamente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Solução: (Informar os detalhes da solução) &lt;br /&gt; &lt;br /&gt; Realizado os seguintes testes com o usuário que atestou a funcionalidade do equipamento/atendimento: &lt;br /&gt;&lt;br /&gt; Utilizado a base de conhecimento? ()Sim ()Não &lt;br /&gt;&lt;br /&gt;Inventário validado: &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Quando Pendente Por Conta do Usuário"
+						style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="INÍCIO - PENDENTE INFORMAÇÃO DO USUÁRIO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Pendente de informação do usuário" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado encontra-se pendente, aguardando retorno do usuário devido o motivo (Informar o motivo).&lt;br /&gt; Previsão de término de pendência: (Informar data/hora). &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="TÉRMINO - PENDENTE INFORMAÇÃO DO USUÁRIO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em andamento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Informamos o término da pendência do chamado. &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+
+								<h:outputText value="ENCERRAMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Resolvido tecnicamente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Solução: (Informar os detalhes da solução) &lt;br /&gt; &lt;br /&gt; Realizado os seguintes testes com o usuário que atestou a funcionalidade do equipamento/atendimento: &lt;br /&gt;&lt;br /&gt; Utilizado a base de conhecimento? ()Sim ()Não &lt;br /&gt;&lt;br /&gt;Inventário validado: &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Quando Há Pendência" style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="INÍCIO DE PENDÊNCIA"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Pendente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado pendente por motivo de: (Informar o motivo da pendência). &lt;br /&gt; &lt;br /&gt;
+						Previsão de Término da Pendência: (data/hora).&lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="TÉRMINO DE PENDENCIA"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em andamento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Informamos o fim da pendência do chamado.&lt;br /&gt; &lt;br /&gt;
+						Término da pendência: (data/hora). &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="ENCERRAMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Resolvido tecnicamente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Solução: (Informar os detalhes da solução) &lt;br /&gt; &lt;br /&gt; Realizado os seguintes testes com o usuário que atestou a funcionalidade do equipamento/atendimento: &lt;br /&gt;&lt;br /&gt; Utilizado a base de conhecimento? ()Sim ()Não &lt;br /&gt;&lt;br /&gt;Inventário validado: &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Equipamento Enviado Para Manutenção"
+						style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="RECONHECIMENTO DE CHAMADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. &lt;br /&gt; &lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText value="EM ATENDIMENTO" style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Em atendimento" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado em atendimento. (Informar detalhadamente tudo o que está sendo feito no chamado) &lt;br /&gt; &lt;br /&gt;
+						Término Previsto: &lt;br /&gt; &lt;br /&gt;
+						Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="IDENTIFICAÇÃO DO PROBLEMA E NECESSIDADE DE ENVIO DE EQUIPAMENTO PARA MANUTENÇÃO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Direcionado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value=" Detalhes do procedimento realizado: ( limpeza /análise / verificação do monitor / impressora / notebook / Desktop). &lt;br /&gt;
+							Após realização do procedimento acima foi diagnosticado a necessidade de (___troca da placa lógica, peça xyz, componente w__). &lt;br /&gt;
+							Detalhes do Equipamento: _________________. &lt;br /&gt;
+							Marca e Modelo: _________________________. &lt;br /&gt;
+							Número de Série: _________________________. &lt;br /&gt;
+							Inventário: _____________________________. &lt;br /&gt;
+							Utilizou a base de conhecimento? ( )sim ( )não &lt;br /&gt;
+							Checklist de Retirada de Equipamento Anexo? ( ) Sim ( ) Não, por motivo de: &lt;br /&gt;
+							Termo de Responsabilidade do Equipamento de Backup Anexo? &lt;br /&gt;
+							( ) Sim, O usuário está operacional com um equipamento __________ Backup HP / Banco________ &lt;br /&gt;
+							( ) Não, O usuário está operacional com equipamento da própria Área ao qual pertence
+							&lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>
+					
+					<p:tab title="Outros Casos" style="font-weight: bold;">
+						<p:panelGrid columns="2">
+							<p:column>
+								<h:outputText value="ENCERRAMENTO - CHAMADO DUPLICADO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Cancelado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado encerrado devido à duplicidade com o chamado ________. &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							
+							<p:column>
+								<h:outputText value="ENCERRAMENTO - PROBLEMA SOLUCIONADO SEM INTERVENÇÃO TÉCNICA"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Cancelado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Em contato com o usuário foi constatado que o problema já foi solucionado, não sendo necessário intervenção do suporte técnico. &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							
+							<p:column>
+								<h:outputText value="ENCERRAMENTO - SOLICITANTE EM PERÍODO DE FÉRIAS / LICENÇAS"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Cancelado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Chamado encerrado devido o usuário estar em período de férias / licença conforme contato com (Informar o nome/ramal do usuário que informou a ausência). Solicitamos a abertura de um novo chamado, após o retorno de seu período de férias / licença.  &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							
+							<p:column>
+								<h:outputText value="CANCELAMENTO - FALTA DE CONTATO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Cancelado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Foram realizadas as tentativas de contato, e encaminhado e-mail para o usuário conforme regra, porém não localizamos o usuário para o atendimento.  &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							
+							<p:column>
+								<h:outputText value="CANCELAMENTO - MEDIANTE PEDIDO DO SOLICITANTE"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Cancelado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Em contato com o usuário, o mesmo solicita o cancelamento do chamado devido á (Informe o motivo), conforme evidência em anexo. &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							
+							<p:column>
+								<h:outputText value="CANCELAMENTO - DEVIDO A INDISPONIBILIDADE DO USUARIO"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Cancelado" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Em contato com o usuário, o mesmo se encontra indisponível para o atendimento dentro do SLA do chamado. &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+							
+							<p:column>
+								<h:outputText value="PARALISAÇÃO SINDICAL"
+									style="font-weight: bold;" />
+								<br />
+								<h:outputText value="Status: Pendente" />
+							</p:column>
+							<p:column>
+								<h:outputText
+									value="Informamos que houve Paralisação Sindical (Greve) no site (informar o nome do site) e não foi possível o atendimento até a normalização. &lt;br /&gt;&lt;br /&gt; Analista: #{fraseologiaBean.nome}"
+									escape="false" />
+							</p:column>
+						</p:panelGrid>
+					</p:tab>					
+				</p:accordionPanel>
+				<p>
+					O resumo da Fraseologia foi criado para auxiliar os colaboradores
+					na utilização das regras. <br /> Ele não substitui a documentação
+					em PDF.
+				</p>
+			</div>
+		</center>
+	</h:form>
+	<div style="margin-left: 2%;">
+		<a href="modelos-de-aplicacao.xhtml" target="_blank">Modelos de chamados</a>
+		<br />
+		<a href="termo_de_retirada_e_devolucao.zip">Termo de Retirada e Devolução</a>
+		<br />
+		<a href="Fraseologia.zip">FraseologiaPDF</a>
+			
+	</div>
+</h:body>
+</html>

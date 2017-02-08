@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet name="estilo.css" library="css" />
+</h:head>
+<body style="background-image:url(#{resource['img:img_fundo.png']});">
+
+	<div style="display: table; margin-left: 100px;">
+		<div style="float: left; width: 35%">
+			<h:graphicImage library="img" name="logo_fraseologia.png" />
+		</div>		
+	</div>
+	<center>
+		<div style="width: 800px;">
+			<h1>MODELOS DE APLICAÇÃO</h1>
+			<p:accordionPanel activeIndex="-1">
+				<p:tab title="FILESHARE">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaFileShare()}" var="share" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{share.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{share.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{share.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{share.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="INTERNET">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaInternet()}" var="internet" tableStyle="width:auto">
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{internet.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{internet.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{internet.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{internet.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="OFFICE">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaOffice()}" var="office" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{office.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{office.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{office.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{office.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="OUTLOOK">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaOutlook()}" var="outlook" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{outlook.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{outlook.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{outlook.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{outlook.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="PERIFÉRICOS/HARDWARE">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaPerifericos()}" var="perifericos" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{perifericos.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{perifericos.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{perifericos.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{perifericos.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+
+				<p:tab title="SOFTWARE">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaSoftware()}" var="software" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{software.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{software.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{software.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{software.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				
+				<p:tab title="VDI">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaVDI()}" var="vdi" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{vdi.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{vdi.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{vdi.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{vdi.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				
+				<p:tab title="TELECOM">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaTelecom()}" var="telecom" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{telecom.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{telecom.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{telecom.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{telecom.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="WINDOWS">
+					<p:dataTable value="#{modeloAplicacaoBean.modelo.populaListaWindows()}" var="windows" tableStyle="width:auto">	
+						<p:column headerText="TIPO">
+							<p:outputLabel value="#{windows.tipo}" />
+						</p:column>
+						<p:column headerText="CÓDIGO">
+							<p:outputLabel value="#{windows.codigo}" />
+						</p:column>
+						<p:column headerText="DESCRIÇÃO">
+							<p:outputLabel value="#{windows.descricao}" />
+						</p:column>
+						<p:column headerText="ARVORE DE CLASSIFICAÇÃO">
+							<p:outputLabel value="#{windows.arvoreClassificacao}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+			</p:accordionPanel>
+		</div>
+		<p style="margin-left: 5%;">Contribuição de Caique Machado.</p>
+	</center>
+</body>
+</html>

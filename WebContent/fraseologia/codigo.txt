@@ -1,0 +1,7 @@
+background-image:url("#{resource['images:logo.png']}"); 
+
+
+float:right; margin-right:0; margin-left:10px; margin-bottom:5px;
+
+
+Na aba “Detalhes da Solução” preencher cada campo (Diagnóstico, Descrição da Causa e Descrição da Solução) de acordo com o que é pedido e não somente copiar e colar a log de encerramento nos três campos.
